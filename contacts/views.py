@@ -3,6 +3,7 @@ from .models import Contact
 from django.contrib import messages
 # Create your views here.
 def contact(request):
+
     if request.method == 'POST':
         listing_id = request.POST['listing_id'] 
         listing = request.POST['listing']
@@ -17,4 +18,3 @@ def contact(request):
         contact.save()
         messages.success(request, 'Your Request has been submitted, a realtor will contact with you')
         return redirect('listings/'+listing_id)
-    
